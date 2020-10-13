@@ -1,0 +1,37 @@
+.button {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  background: transparent;
+  margin: 0.25rem;
+  outline: none;
+  cursor: pointer;
+  background-color: #0066AA;
+  transition: 0.3s background-color ease-in-out;
+  color: #FFFFFF;
+}
+
+.button:hover {
+  filter: saturate(50%);
+}
+
+.button:active {
+  border: 1px inset #005599;
+}
+
+.button:focus {
+  outline: 1px dotted #000000;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  background-color: #444444;
+}
+
+.button--ok {
+  background-color: #BB0000;
+}
+
+.button--cancel {
+  background-color: #007700;
+}
