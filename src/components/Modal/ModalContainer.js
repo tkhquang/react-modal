@@ -13,10 +13,18 @@ const ModalContainer = ({
 }) => {
   const [isOpened, setIsOpened] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const modalRef = useRef();
 
   function closeModal() {
-    setIsOpened(false);
+    if (modalRef.current) {
+      setIsClosing(true);
+      // Wait for the animation to finish
+      setTimeout(() => {
+        setIsOpened(false);
+        setIsClosing(false);
+      }, 501);
+    }
   }
 
   function openModal() {
@@ -95,7 +103,9 @@ const ModalContainer = ({
           closeModal={closeModal}
           onCancel={handleCancel}
           onOk={handleOk}
+          isOpened={isOpened}
           isLoading={isLoading}
+          isClosing={isClosing}
         >
           {content(closeModal)}
         </ModalContent>

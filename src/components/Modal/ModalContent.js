@@ -10,7 +10,9 @@ const ModalContent = forwardRef(
     closeModal,
     onCancel,
     onOk,
-    isLoading
+    isOpened,
+    isLoading,
+    isClosing
   }, ref) => (
   createPortal(
     <div
@@ -19,6 +21,8 @@ const ModalContent = forwardRef(
       aria-labelledby="modal-label"
       aria-modal="true"
       tabIndex="-1"
+      data-opened={isOpened}
+      data-closing={isClosing}
     >
       <div
         className={styles.modal__content}
